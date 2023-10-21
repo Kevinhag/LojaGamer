@@ -12,7 +12,9 @@
 html {
   /* ----------Black Theme---------- */
   --maintext: #f8f8f6;
+  --text: #AAA;
   --mainborder: #cc0000;
+  --border: #666;
   --shadowhard: #ff0000ee;
   --shadowsoft: #b900b9ee;
   --grayedout: #ffb86c;
@@ -29,7 +31,7 @@ html {
   --tabbg: #44475a33;
   --secbg: #003434;
   --secborder: #ff79c6;
-  --border: #44475a;
+ 
   --diffadd: #354;
   --diffdel: #534;
   --warnbg: #ff5555;
@@ -60,10 +62,10 @@ main {
   padding-top: calc(var(--navheight) + 20px);
 }
 
-img {
+/* img {
   display: block;
   margin: auto;
-}
+} */
 
 footer {
   display: flex;
@@ -98,7 +100,6 @@ header nav div img {
   display: flex;
 }
 
-
 .flex-align-center{
   align-items: center;
   justify-content: center;
@@ -121,9 +122,9 @@ header nav div img {
   column-gap: 20px;
 }
 
-
-
 .nav {
+  position: absolute;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,15 +142,39 @@ header nav div img {
 }
 
 .navLogo {
-  height: auto;
+  position: relative;
+  height: 100%;
   width: 120px;
-  padding: 0px 40px;
+  
+}
+
+.navLogo img{
+  position: absolute;
+  translate: 0% -50%;
+  top: 50%;
+  left: 25px;
 }
 
 .navLogin {
-  width: 30%;
+  position: relative;
+  font-family: Chakra Petch;
+  width: 150px;
+  height: 100%;
+  right: 0px;
   color: var(--maintext);
   transition: var(--theme-anim-time);
+}
+
+.navLogin div {
+  position: absolute;
+  translate: 50% -50%;
+  top: 50%;
+  right: 50%;
+  color: var(--maintext);
+}
+
+.hidden {
+  display: none;
 }
 
 /* ################################ */
@@ -175,9 +200,14 @@ header nav div img {
 .text-promo{
   position: absolute;
   right: 7%;
-  background: red;
   width:60%;
   height: 60%;
+  overflow: hidden;
+}
+
+.text-promo img{
+  height: 120%;
+  z-index: -10;
 }
 
 .logo-promo{
@@ -188,21 +218,25 @@ header nav div img {
 }
 
 .carousel-main{
+  gap: 20px;
   width: 100%;
-  height: 400px;
-  background: crimson;
+  height: 600px;
+  background: transparent;
 }
 
 .cards-main{
+  gap: 20px;
+  padding: 50px;
   width: 100%;
-  height: 400px;
-  background: teal;
+  height: 600px;
+  background: transparent;
 }
 
 .prod-main{
+  gap: 20px;
   width: 100%;
-  height: 700px;
-  background: brown;
+  height: 600px;
+  background: transparent;
 }
 
 
@@ -215,12 +249,13 @@ header nav div img {
   background-color: var(--cardbg);
   color: var(--maintext);
   position: relative;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  font-family: Chakra Petch;
   align-items: center;
   width: 250px;
   height: 400px;
+  gap: 0;
   border-radius: calc(var(--cardradius) - 1px) 0px;
   /* transition: box-shadow 0.4s ease 0s, border-radius var(--theme-anim-time), color var(--theme-anim-time); */
   transition: var(--theme-anim-time);
@@ -235,14 +270,47 @@ header nav div img {
   transition: 200ms;
 }
 
-.product-hf {
-  margin: 10px;
+.card-product-name {
+  border: 1px var(--border) solid;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  justify-content: flex-start;
+  height: 56px;
+  width: 100%;
+}
+
+.product-brand{
+  color: var(--text);
+  position: absolute;
+  top: 42px;
+  align-items: center;
+  font-family: Chakra Petch;
+  font-size: 11pt;
+  font-weight: 100;
+  font-style: italic;
+}
+.product-name{
+
+  color: var(--maintext);
+  top: 20px;
+  position: absolute;
+  font-family: Chakra Petch;
+  font-size: 15pt;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.card-price{
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  width: auto;
+  width: 100%;
+  border: 1px var(--border) solid;
+  font-family: Chakra Petch;
+  font-weight: 600;
+  font-size: 16pt;
 }
 
 .product-img {
@@ -250,24 +318,47 @@ header nav div img {
   display: inherit;
   align-items: center;
   justify-content: center;
-  object-fit: cover;
+  /* object-fit: contain; */
   height: 50%;
   transition: var(--theme-anim-time);
+}
+
+.product-img img{
+  /* width: 100%; */
+  height: 100%;
+}
+
+.card-rating{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+}
+
+.rating-users{
+  font-size: 8pt;
+}
+
+.rating-stars{
+  font-size: 12pt;
 }
 
 .product-btn {
   background-color: var(--bodybg);
   color: var(--maintext);
+  border: 1px solid var(--mainborder);
   cursor: pointer;
-  border: 1px solid var(--shadowsoft);
-  font-size: 12pt;
-  font-family: Roboto;
-  font-weight: 400;
-  border-radius: 5px;
-  width: inherit;
+  font-family: Chakra Petch;
+  font-size: 10pt;
+  font-weight: 800;
+  font-style: italic;
+  width: 100%;
   height: 40px;
-  margin: 10px;
   transition: var(--theme-anim-time);
+  text-transform: uppercase;
 }
 
 .product-btn:hover {
@@ -275,12 +366,19 @@ header nav div img {
 }
 
 /* ----------Barra de Pesquisa---------- */
+
 input[type="search"] {
-  width: 50%;
+  color: var(--maintext);
+  position: absolute;
+  min-width: 120px;
+  top: 50%;
+  left: 120px;
+  width: 10%;
   height: 40px;
-  translate: -50%;
+  translate: 0% -50%;
+  outline: none;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 5px;
   font-size: 16px;
   background-color: var(--bodybg);
@@ -290,15 +388,14 @@ input[type="search"] {
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   transition: var(--theme-anim-time);
-  
 }
 
 input[type="search"]:hover {
-  width: 200%;
+  width: 40%;
 }
 
 input[type="search"]:focus {
-  width: 200%;
+  width: 40%;
   animation: rainbow-border 5s linear infinite;
 }
 
@@ -367,7 +464,7 @@ input:checked + .slider:before {
 }
 
 .promotion {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   overflow: hidden;
   border-radius: var(--cardradius) 0px;
@@ -440,11 +537,8 @@ input:checked + .slider:before {
   50% {
     transform: scale(9) rotate(180deg);
   }
-  99.9999% {
-    transform: scale(9) rotate(360deg);
-  }
   100% {
-    transform: scale(9) rotate(0);
+    transform: scale(9) rotate(360deg);
   }
 }
 

@@ -1,41 +1,81 @@
-// window.onload = async function productList() {
-//   var promise = await fetch("/php/get-product.php", {
-//     method: "GET",
-//   });
+window.onload = async function productList() {
+  var promise = await fetch("./php/get-product.php", {
+    method: "GET",
+  });
 
-//   var data = await promise.json();
-//   for (var i = 0; i < data.length; i++) {
-//     console.log(data);
-//     console.log(data[i]);
+  var data = await promise.json();
 
-//     // var icons = [
-//     //   { nome: "Icon-Twitter" },
-//     //   { nome: "Icon-Instagram" },
-//     //   { nome: "Icon-YouTube" },
-//     // ];
+  let randData = Math.floor(Math.random() * data.length);
 
-//     var customCard = `<div class="card">
-//             <div class="card-icon">
-//                 ${data[i].name}
-//             </div>
-//             <div class="card-title">
-//                 ${data[i].brand}
-//             </div>
-//             <div class="card-description">
-//                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus iure possimus aliquid ea, soluta optio maxime officia.
-//             </div>
-//             <div class="card-button">
-//                 <button class="btn-card">
-//                     BUTTON
-//                 </button>
-//             </div>
-//             </div>`;
+  for (
+    var i = 0;
+    i < data.length /8 /*melhorar forma para limitar quantidade de cards*/; i++) {
+    // console.log(data);
+    // console.log(data[randData]);
 
-//     document.getElementById("cards-app").innerHTML += customCard;
-//   }
-// }
+    let namep = data[randData].name.replaceAll(" ", "-");
+    let imagepath = "./assets/images/" + data[randData].part_type + "/" + data[randData].brand + "_" + namep + "_" + data[randData].manufacturer + ".png";
 
-// document.addEventListener("DOMContentLoaded", function () {
+    let cardtype = null;
+    let cardnew = null;
+
+    if (data[randData].on_sale === "0") {
+      cardtype = "common";
+    } else {
+      cardtype = "promotion";
+    }
+
+    if (data[randData].new === "0") {
+      cardnew = "common";
+    } else {
+      cardnew = "promotion";
+    }
+
+    let customCard = `<div class="${cardtype}" id="card">
+<div class="product">
+  <div class="card-product-name">
+    <div class="product-name" name="name">${data[randData].name}</div>
+    <div class="product-brand">${data[randData].brand}</div>
+  </div>
+  <div class="product-img">
+    <img
+      src="${imagepath}"
+      alt=""
+    />
+  </div>
+  <div class="card-price">
+    R$ ${data[randData].price}
+  </div>
+  <div class="card-rating">
+    <div class="rating-stars" id="stars">
+      ⭐⭐⭐⭐⭐ ${data[randData].rating} ${data[randData].new} ${
+      data[randData].on_sale
+    } ${data.length}
+    </div>
+    <div class="rating-users">
+      12348 Users
+    </div>
+  </div>
+  <div>
+    <button type="button" class="product-btn">
+      Adicionar ao Carrinho
+    </button>
+  </div>
+</div>
+</div>`;
+
+    if (data[randData].on_sale === "0") {
+      document.getElementById("cards-common").innerHTML += customCard;
+    } else {
+      document.getElementById("cards-promotion").innerHTML += customCard;
+    }
+    document.getElementById("cards-all").innerHTML += customCard;
+
+    // document.getElementById("cards-all").innerHTML += data[i].part_type + imagepath;
+    randData = Math.floor(Math.random() * data.length);
+  }
+};
+
 const body = document.body;
 const themeSwitch = document.getElementById("theme-switch");
 const themeStyle = document.getElementById("theme-style");
@@ -70,8 +110,7 @@ for (let i = 0; i < numBorders; i++) {
   border.id = "teste" + (i + 1);
   border.classList.add("borda");
   border.classList.add("rainbow");
-  border.style.inset = i * insetMult + "px ";
-  // border.style.borderColor = "hsl(" + ((360/numBorders) * i) + ",100%, 50%)"
+  border.style.inset = i * insetMult + "px " + i * (insetMult - 6) + "px";
   border.style.animationDelay = i * -0.5 + "s";
   container.appendChild(border);
   border.style.opacity = (numBorders - i) / numBorders;
