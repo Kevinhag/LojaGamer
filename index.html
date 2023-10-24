@@ -11,22 +11,25 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
     <link id="theme-style" rel="stylesheet" href="css/dark-theme.css" />
+    <link
+      rel="stylesheet"
+      href="./css/fontawesome-free-6.4.2-web/css/all.css"
+    />
     <script defer src="js/script.js"></script>
+    <script src="js/card.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>K.O Gaming Store</title>
   </head>
-  <img src="" alt="" />
   <body>
     <header>
       <nav class="nav">
         <div class="navLogo">
           <img src="assets/logoko_g.png" alt="" srcset="" />
         </div>
-        <div class="flexCol">
-          <div>
-            <input type="search" name="" id="" placeholder="Busca" />
-          </div>
+        <div class="nav-search">
+          <i class="fa-solid fa-magnifying-glass" ></i>
+          <input type="search" name="" id="" placeholder="Busca" />
         </div>
         <div>
           <label class="switch">
@@ -35,6 +38,7 @@
           </label>
         </div>
         <div class="navLogin">
+          <a href="admin.html">admin</a>
           <div>Login</div>
         </div>
       </nav>
@@ -58,74 +62,20 @@
       </section>
 
       <section
-        class="carousel-main d-flex flex-align-center"
+        class="cards-main"
         id="cards-promotion"
       ></section>
 
       <section
-        class="cards-main d-flex flex-align-center"
+        class="cards-main"
         id="cards-common"
       ></section>
 
       <section
-        class="prod-main d-flex flex-align-center"
+        class="cards-main"
         id="cards-all"
       ></section>
     </main>
-    <footer id="cards-app">
-
-
-      <div class="promotion" id="card">
-        <div class="product">
-          <div class="card-product-name">
-            <div class="product-name" name="name">RTX 2060 SUPER</div>
-            <div class="product-brand">NVIDIA</div>
-          </div>
-          <div class="product-img">
-            <img src="${imagepath}" alt="" />
-          </div>
-          <div class="card-price">R$ 1.349,30</div>
-          <div class="card-rating">
-            <div class="rating-stars" id="stars">
-              ⭐⭐⭐⭐⭐
-            </div>
-            <div class="rating-users">12348 Users</div>
-          </div>
-          <div>
-            <button type="button" class="product-btn">
-              Adicionar ao Carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="common" id="card">
-        <div class="product">
-          <div class="card-product-name">
-            <div class="product-name" name="name">RTX 2060 SUPER</div>
-            <div class="product-brand">NVIDIA</div>
-          </div>
-          <div class="product-img">
-            <img src="${imagepath}" alt="" />
-          </div>
-          <div class="card-price">R$ 1.200,00</div>
-          <div class="card-rating">
-            <div class="rating-stars" id="stars">
-              ⭐⭐⭐⭐⭐
-            </div>
-            <div class="rating-users">12348 Users</div>
-          </div>
-          <div>
-            <button type="button" class="product-btn">
-              Adicionar ao Carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-
-
-    </footer>
+    <footer id="cards-app"></footer>
   </body>
 </html>

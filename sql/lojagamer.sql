@@ -29,13 +29,13 @@ CREATE TABLE cart (
     user_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),1
     FOREIGN KEY (product_id) REFERENCES product (id)
 );
 
 
 1,GeForce RTX 3060,NVIDIA,2099.99,5,"12GB GDDR6, LHR, DLSS, Ray Tracing - DUAL-RTX3060-O12G-V2",5,1,1,graphics_card,2023-10-20 02:31:13,Asus,DUAL-RTX3060-O12G-V2
-2,GeForce RTX 4090 ROG Strix,NVIDIA,12999.99,3," 24 GB GDDR6X, ARGB, DLSS, Ray Tracing - ROG-STRIX-RTX4090-O24G-GAMING",4,1,0,graphics_card,2023-10-20 02:31:13,Asus,ROG-STRIX-RTX4090-O24G-GAMING
+2,GeForce RTX 4090 ROG Strix,NVIDIA,12999.99,3," 24 GB GDDR6X, ARGB, DLSS, Ray Tracing - ROG-STRIX-RTX4090-O24G-GAMING",4,1,0,graphics_card,2023-10-20 02:31:13,Asus,ROG Strix,ROG-STRIX-RTX4090-O24G-GAMING
 3,GeForce GTX 1080,NVIDIA,1920,1,G1 Gaming 8G GV-N1080G1 GAMING-8GD,2,0,0,graphics_card,2023-10-20 04:36:16,GIGABYTE,GV-N1080G1 GAMING-8GD
 
 CREATE TABLE product (
@@ -51,7 +51,8 @@ CREATE TABLE product (
     part_type VARCHAR(45),
     date_added DATETIME,
     manufacturer VARCHAR(45),
-    model VARCHAR(45),
+    product_line VARCHAR(45)
+    model VARCHAR(45)
 );
 
 
@@ -108,3 +109,9 @@ VALUES
     ('Presonus AudioBox USB', 'Presonus', 79.99, 6, 'USB Audio Interface, 2 Inputs - AUDIOBOX-USB', 3, 0, 0, 'audio_interface', '2023-10-25 23:56:14', 'Presonus', 'AUDIOBOX-USB'),
     ('Edifier R1280T', 'Edifier', 99.99, 7, '2.0 Bookshelf Speakers, RCA Input - R1280T', 4, 1, 0, 'speakers', '2023-10-26 03:54:59', 'Edifier', 'R1280T'),
     ('Bose SoundLink Mini II', 'Bose', 149.99, 4, 'Bluetooth Speaker, Portable - 725192-1110', 5, 0, 1, 'speakers', '2023-10-26 07:53:45', 'Bose', '725192-1110');
+
+
+
+    SELECT * FROM lojagamer.product WHERE on_sale = 1
+    ORDER BY RAND()
+    LIMIT 5
