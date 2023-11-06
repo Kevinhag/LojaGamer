@@ -1,0 +1,16 @@
+OK 1 - fazer a Busca Funcionar
+OK 2 - layout da pagina de admin
+3 - layout da pagina de carrinho
+OK 4 - layout da pagina de excluir item
+OK 5 - Script para fazer um dropdown e carregar os produtos baseados no dropdown selecionado
+OK 6 - Script para salvar imagem, e criar a pasta de acordo com o produto
+OK 7 - Script para fazer auto preencher os campos quando algo no dropdown estiver selecionado
+OK 8 - Script e php da pagina de carrinho
+OK 9 - Quando existir algo no carrinho o icone do carrinho fica brilhando
+OK 10 - Corrigir nomes saindo da div nos cards
+12 - Colocar texto no banner principal
+13 - Fazer efeito parallax no bg
+14 - Preencher Footer
+OK 15 - Colocar icone 
+16 - 
+17 - Responsividade

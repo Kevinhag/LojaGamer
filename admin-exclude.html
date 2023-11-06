@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+  <link id="theme-style" rel="stylesheet" href="css/dark-theme.css" />
+  <script defer src="js/admin.js"></script>
+  <script src="js/card.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <title>K.O Gaming Store - Admin</title>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="navLogo">
+        <img src="assets/logoko_g.png" alt="" srcset="" />
+      </div>
+      <div class="nav-search">
+        <i class="fa-solid fa-magnifying-glass" hidden></i>
+        <input type="search" name="" id="" placeholder="Busca" hidden/>
+      </div>
+      <div>
+        <label class="switch">
+          <input type="checkbox" name="" id="theme-switch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="navLogin">
+        <a href="index.html">Main</a>
+        <div>Login</div>
+      </div>
+    </nav>
+  </header>
+  <main class="admin">
+    <div class="admin-base"><a href="./admin.html">Include</a> / Exclude</div>
+    <section>
+      <div class="admin-product-select">
+        <img src="assets/logoko_g.png" class="adminLogo">
+        <select class="pDD" name="productDD" id="productDD">
+          <option value="null">-- Select Product --</option>
+        </select>
+      </div>
+      <div class="admin-product-img" >
+        <div id="showProductImage" class="admin-show-img">
+          
+        </div>
+      </div>
+      <form class="admin-form" enctype="multipart/form-data">
+        <div class="admin-product-form">
+          <div>
+            <div action="" id="form-add">
+              <div>
+                <label for="fp-name">ID: </label>
+                <input type="text" name="id" id="fp-id" placeholder="Auto-increment" />
+              </div>
+              <div>
+                <label for="fp-name">Name: </label>
+                <input type="text" name="name" id="fp-name" disabled/>
+              </div>
+              <div>
+                <label for="fp-brand">Brand: </label>
+                <input type="text" name="brand" id="fp-brand" disabled/>
+              </div>
+              <div>
+                <label for="fp-desc">Description: </label>
+                <input type="text" name="description" id="fp-desc" disabled/>
+              </div>
+              <div>
+                <label for="fp-mnfac">Manufacturer: </label>
+                <input type="text" name="manufacturer" id="fp-mnfac" disabled/>
+              </div>
+              <div>
+                <label for="fp-model">Model: </label>
+                <input type="text" name="model" id="fp-model" disabled/>
+              </div>
+              <div>
+                <label for="fp-pline">Product Line: </label>
+                <input type="text" name="product_line" id="fp-pline" disabled/>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div action="" id="form-add">
+              <div>
+                <input type="hidden" name="productDD" id="fp-pDD" value="null"/>
+              </div>
+              <div>
+                <label for="fp-price">Price: </label>
+                <input type="text" name="price" id="fp-price" disabled/>
+              </div>
+              <div>
+                <label for="fp-qtt">Stock: </label>
+                <input type="text" name="stock" id="fp-qtt" disabled/>
+              </div>
+              <div>
+                <label for="fp-rating">Rating: </label>
+                <input type="text" name="rating" id="fp-rating" disabled/>
+              </div>
+              <div>
+                <label for="fp-new">New?: </label>
+                <input type="text" name="new" id="fp-new" disabled/>
+              </div>
+              <div>
+                <label for="fp-onsale">On Sale?: </label>
+                <input type="text" name="onsale" id="fp-onsale" disabled/>
+              </div>
+              <div>
+                <label for="fp-type">Type: </label>
+                <input type="text" name="part_type" id="fp-type" disabled/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="admin-btn">
+          <button type="button" id="removeButton">Remove</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
