@@ -14,6 +14,7 @@ async function cartList() {
   });
 
   cartRainbow(cartData.cart.length);
+  checkoutSummary(cartData.total);
 }
 
 async function removeFromCart(productId) {
@@ -29,4 +30,13 @@ async function removeFromCart(productId) {
   alert(result);
 
   cartList();
+}
+
+
+function checkoutSummary(cart) {
+  let totalItems = cart.total_produtos;
+  let totalPrice = cart.total_valor;
+
+  document.getElementById("total-items").textContent = totalItems;
+  document.getElementById("total-price").textContent = totalPrice;
 }

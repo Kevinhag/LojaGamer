@@ -53,7 +53,7 @@ window.onload = async function productList() {
     });
 
     if (matchingProducts.length === 0) {
-      searchResultsContainer.innerHTML = "Nenhum produto encontrado.";
+      searchResultsContainer.innerHTML = "";
     } else {
 
       matchingProducts.forEach(function (product) {

@@ -11,7 +11,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
     <link id="theme-style" rel="stylesheet" href="css/dark-theme.css" />
-    <!-- <script defer src="js/script.js"></script> -->
     <link
       rel="stylesheet"
       href="./css/fontawesome-free-6.4.2-web/css/all.css"
@@ -51,20 +50,50 @@
               </div>
             </div>
             <div class="navLogin">
-              <a href="index.html">main</a>
+              <a href="index.html">Main</a>
               <div>Login</div>
             </div>
           </div>
         </nav>
       </header>
       <main class="cartMain">
-        <div class="cart-container">
-          <section class="cart" id="cart-cards"></section>
-          <div class="checkout-btn" >
-            <a href="./checkout.html">Finalizar Compra</a>
+        <div class="checkout-container">
+          <div class="cards-checkout">
+            <div class="cart" id="cart-cards"></div>
+            <div class="checkout-total">
+              <h2>Resumo da Compra</h2>
+              <p>Total de Itens: <span id="total-items">0</span></p>
+              <p>Valor Total: R$ <span id="total-price">0.00</span></p>
+              <h3>Forma de pagamento:</h3>
+              <select name="" id="" class="pDD">
+                <option value="">Pix</option>
+                <option value="">Crédito</option>
+                <option value="">Débito</option>
+              </select>
+              <div class="admin-btn">
+                <button>Finalizar Compra</button>
+              </div>
+              
+            </div>
           </div>
+
+
         </div>
       </main>
     </div>
   </body>
 </html>
+        <!-- <div class="cart-container">
+          <section class="cart" id="cart-cards"></section>
+          <div class="checkout-btn">
+            <a href="./checkout.html">Finalizar Compra</a>
+          </div>
+          <div>
+            <div class="checkout-summary" id="checkout-summary">
+              <h2>Resumo da Compra</h2>
+              <p>Total de Itens: <span id="total-items">0</span></p>
+              <p>Valor Total: R$ <span id="total-price">0.00</span></p>
+              <button class="checkout-btn">Finalizar Compra</button>
+            </div>
+          </div>
+        </div> -->
