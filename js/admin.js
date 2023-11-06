@@ -25,11 +25,6 @@ async function productList() {
     method: "GET",
   });
 
-  
- 
-  
-
-
   function listSelection() {
     let classes = [
       "fp-id",
@@ -121,7 +116,7 @@ async function productList() {
   defaultOption.text = "-- Select Product --";
   container.appendChild(defaultOption);
 
-  data.forEach((product) => {
+  data.forEach(function (product) {
     let option = document.createElement("option");
     option.innerHTML = product.part_type + " | " + product.name;
     option.value = product.id;

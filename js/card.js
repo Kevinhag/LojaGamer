@@ -34,15 +34,11 @@ function card(productArrayindex) {
        ${stars(productArrayindex.rating)}
     </div>
     <div class="rating-users">
-      12348 Users
+      12348 Usuários
     </div>
   </div>
-  <div>
-    <button type="button" class="product-btn" onclick="addToCart(${
-      productArrayindex.id
-    })">
-      Add to Cart
-    </button>
+  <div type="button" class="product-btn" onclick="addToCart(${productArrayindex.id})">
+  Adicionar ao Carrinho
   </div>
   </div>
   </div>`;
@@ -63,22 +59,23 @@ function CCard(productArrayindex) {
     cardNew = `<div class="product-new">
             NEW
           </div>`;
+    cartCardNew = `<div class="cart-product-new">
+            NEW
+          </div>`;
   }
 
   let cartCard = `<div class="${cardType}">
   <div class="product-cart">
-    
     <div class="cart-card-product-name">
-      <div class="product-name-cart" name="name">${productArrayindex.name}</div>
-      <div class="product-brand">${productArrayindex.brand}</div>
+      <div class="cart-product-name" name="name">${productArrayindex.name}</div>
+      <div class="cart-product-brand">${productArrayindex.brand}</div>
     </div>
-    <div class="product-img">
+    <div class="cart-product-img">
       <img src="${imagePath(productArrayindex)}" alt="" />
     </div>
     <div class="cart-card-price">
       R$ ${productArrayindex.price}
     </div>
-    NEW
     <div class="cart-card-rating">
       <div class="rating-stars" id="stars">
       ${stars(productArrayindex.rating)}
@@ -87,16 +84,64 @@ function CCard(productArrayindex) {
         12348 Users
       </div>
     </div>
-    <div>
-      <button type="button" class="cart-product-btn">
+    <div type="button" class="cart-product-btn" onclick="removeFromCart(${productArrayindex.id})""> 
         Remover
-      </button>
     </div>
   </div>
+  
 </div>`;
 
   return cartCard;
 }
+
+function SCard(productArrayindex) {
+  if (parseInt(productArrayindex.on_sale) === 0) {
+    cardType = "common-cart";
+  } else {
+    cardType = "promotion-cart";
+  }
+
+  if (parseInt(productArrayindex.new) === 0) {
+    cardNew = "";
+  } else {
+    cardNew = `<div class="product-new">
+            NEW
+          </div>`;
+    cartCardNew = `<div class="cart-product-new">
+            NEW
+          </div>`;
+  }
+
+  let searchCard = `<div class="${cardType}">
+  <div class="product-search">
+  ${cardNew}
+    <div class="search-card-product-name">
+      <div class="cart-product-name" name="name">${productArrayindex.name}</div>
+      <div class="cart-product-brand">${productArrayindex.brand}</div>
+    </div>
+    <div class="search-product-img">
+      <img src="${imagePath(productArrayindex)}" alt="" />
+    </div>
+    <div class="search-card-price">
+      R$ ${productArrayindex.price}
+    </div>
+    <div class="search-card-rating">
+      <div class="rating-stars" id="stars">
+      ${stars(productArrayindex.rating)}
+      </div>
+      <div class="rating-users">
+        12348 Users
+      </div>
+    </div>
+    <div type="button" class="search-product-btn" onclick="addToCart(${productArrayindex.id})"> 
+        +
+    </div>
+  </div>
+  
+</div>`;
+  return searchCard;
+}
+
 
 function stars(r) {
   let rp = parseInt(r);

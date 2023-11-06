@@ -1,16 +1,32 @@
-window.onload = async function cartList() {
+window.onload = cartList();
+
+async function cartList() {
   var promise = await fetch("./php/cart.php", {
     method: "GET",
   });
-
+  document.getElementById("cart-cards").innerHTML = "";
   var cartData = await promise.json();
 
-  for (var j = 0; j < cartData.cart.length; j++) {
-    var cartProduct = cartData.cart[j];
-    let cartCard = CCard(cartProduct); 
+  cartData.cart.forEach(function (cartItem) {
+    let cartCard = CCard(cartItem);
     document.getElementById("cart-cards").innerHTML += cartCard;
-    console.log(cartProduct);
-  }
+
+  });
 
   cartRainbow(cartData.cart.length);
-};
+}
+
+async function removeFromCart(productId) {
+  const removeCartData = new FormData();
+  removeCartData.append("removeProduct_id", productId);
+
+  const response = await fetch("./php/cart-remove.php", {
+    method: "POST",
+    body: removeCartData,
+  });
+
+  const result = await response.text();
+  alert(result);
+
+  cartList();
+}

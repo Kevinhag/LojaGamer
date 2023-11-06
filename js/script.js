@@ -35,29 +35,37 @@ window.onload = async function productList() {
   const searchInput = document.getElementById("search");
   const searchResultsContainer = document.getElementById("search-results");
 
+  searchInput.addEventListener("blur", function () {
+    searchInput.value = "";
+    searchResultsContainer.innerHTML = ""
+  });
+
   searchInput.addEventListener("input", function () {
     const searchTerm = searchInput.value.toLowerCase();
 
     searchResultsContainer.innerHTML = "";
 
-    const matchingProducts = products.filter((product) => {
+    const matchingProducts = products.filter(function (product) {
       return (
         product.name.toLowerCase().includes(searchTerm) ||
-        product.description.toLowerCase().includes(searchTerm)
+        product.brand.toLowerCase().includes(searchTerm)
       );
     });
 
     if (matchingProducts.length === 0) {
       searchResultsContainer.innerHTML = "Nenhum produto encontrado.";
     } else {
-      matchingProducts.forEach((product) => {
+
+      matchingProducts.forEach(function (product) {
         const productCard = document.createElement("div");
-        productCard.innerHTML = `<h2>${product.name}</h2><p>${product.description}</p>`;
+        productCard.innerHTML = SCard(product);
         searchResultsContainer.appendChild(productCard);
       });
     }
   });
 };
+
+
 
 const body = document.body;
 const themeSwitch = document.getElementById("theme-switch");

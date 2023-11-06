@@ -11,8 +11,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
     <link id="theme-style" rel="stylesheet" href="css/dark-theme.css" />
-    <link rel="stylesheet" href="./css/fontawesome-free-6.4.2-web/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="./css/fontawesome-free-6.4.2-web/css/all.css"
+    />
     <script defer src="js/admin.js"></script>
+    <script defer src="js/bgMain.js"></script>
     <script src="js/card.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,120 +25,142 @@
   </head>
 
   <body>
-    <header>
-      <nav class="nav">
-        <div class="navLogo">
-          <img src="assets/logoko_g.png" alt="" srcset="" />
-        </div>
-        <div class="nav-search">
-          <i class="fa-solid fa-magnifying-glass" hidden></i>
-          <input type="search" name="" id="search" placeholder="Busca" hidden/>
-        </div>
-        <div>
-          <label class="switch">
-            <input type="checkbox" name="" id="theme-switch" />
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="navLogin">
-          <a href="index.html">Main</a>
-          <div>Login</div>
-        </div>
-      </nav>
-    </header>
-    <main class="admin">
-      <div class="admin-base">
-        Include / <a href="./admin-exclude.html">Exclude</a>
-      </div>
-      <section>
-        <div class="admin-product-select">
-          <img src="assets/logoko_g.png" class="adminLogo" />
-          <select class="pDD" name="productDD" id="productDD">
-            <option value="null">-- Select Product --</option>
-          </select>
-        </div>
-        <div class="admin-product-img">
-          <div id="showProductImage" class="admin-show-img"></div>
-        </div>
-        <form class="admin-form" enctype="multipart/form-data">
-          <div>
-            <input
-              type="file"
-              name="productImage"
-              id="sendFile"
-              accept="image/png"
-            />
-          </div>
-          <div class="admin-product-form">
-            <div>
-              <div action="" id="form-add">
-                <div>
-                  <label for="fp-name" hidden>ID: </label>
-                  <input type="hidden" name="id" id="fp-id" placeholder="Auto-increment" />
-                </div>
-                <div>
-                  <label for="fp-name">Name: </label>
-                  <input type="text" name="name" id="fp-name" />
-                </div>
-                <div>
-                  <label for="fp-brand">Brand: </label>
-                  <input type="text" name="brand" id="fp-brand" />
-                </div>
-                <div>
-                  <label for="fp-desc">Description: </label>
-                  <input type="text" name="description" id="fp-desc" />
-                </div>
-                <div>
-                  <label for="fp-mnfac">Manufacturer: </label>
-                  <input type="text" name="manufacturer" id="fp-mnfac" />
-                </div>
-                <div>
-                  <label for="fp-model">Model: </label>
-                  <input type="text" name="model" id="fp-model" />
-                </div>
-                <div>
-                  <label for="fp-pline">Product Line: </label>
-                  <input type="text" name="product_line" id="fp-pline" />
-                </div>
-              </div>
+    <div class="parallax-bg">
+      <header>
+        <nav class="nav">
+          <div class="nav-container">
+            <div class="navLogo">
+              <img src="assets/logoko_g.png" alt="" srcset="" />
+            </div>
+            <div class="nav-search">
+              <i class="fa-solid fa-magnifying-glass" hidden></i>
+              <input
+                type="search"
+                name=""
+                id="search"
+                placeholder="Busca"
+                hidden
+              />
             </div>
             <div>
-              <div action="" id="form-add">
-                <div>
-                  <input type="hidden" name="productDD" id="fp-pDD" value="null"/>
-                </div>
-                <div>
-                  <label for="fp-price">Price: </label>
-                  <input type="text" name="price" id="fp-price" />
-                </div>
-                <div>
-                  <label for="fp-qtt">Stock: </label>
-                  <input type="text" name="stock" id="fp-qtt" />
-                </div>
-                <div>
-                  <label for="fp-rating">Rating: </label>
-                  <input type="text" name="rating" id="fp-rating" />
-                </div>
-                <div>
-                  <label for="fp-new">New?: </label>
-                  <input type="text" name="new" id="fp-new" />
-                </div>
-                <div>
-                  <label for="fp-onsale">On Sale?: </label>
-                  <input type="text" name="onsale" id="fp-onsale" />
-                </div>
-                <div>
-                  <label for="fp-type">Type: </label>
-                  <input type="text" name="part_type" id="fp-type" />
-                </div>
-              </div>
+              <label class="switch">
+                <input type="checkbox" name="" id="theme-switch" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="navLogin">
+              <a href="index.html">Main</a>
+              <div>Login</div>
             </div>
           </div>
-          <div class="admin-btn">
-            <button type="submit">Add / Modify</button>
+        </nav>
+      </header>
+      <main class="admin">
+        <div class="admin-base">
+          Include / <a href="./admin-exclude.html">Exclude</a>
+        </div>
+        <section>
+          <div class="section-container">
+            <div class="admin-product-select">
+              <img src="assets/logoko_g.png" class="adminLogo" />
+              <select class="pDD" name="productDD" id="productDD">
+                <option value="null">-- Select Product --</option>
+              </select>
+            </div>
+            <div class="admin-product-img">
+              <div id="showProductImage" class="admin-show-img"></div>
+            </div>
+            <form class="admin-form" enctype="multipart/form-data">
+              <div>
+                <input
+                  type="file"
+                  name="productImage"
+                  id="sendFile"
+                  accept="image/png"
+                />
+              </div>
+              <div class="admin-product-form">
+                <div>
+                  <div action="" id="form-add">
+                    <div>
+                      <label for="fp-name" hidden>ID: </label>
+                      <input
+                        type="hidden"
+                        name="id"
+                        id="fp-id"
+                        placeholder="Auto-increment"
+                      />
+                    </div>
+                    <div>
+                      <label for="fp-name">Name: </label>
+                      <input type="text" name="name" id="fp-name" />
+                    </div>
+                    <div>
+                      <label for="fp-brand">Brand: </label>
+                      <input type="text" name="brand" id="fp-brand" />
+                    </div>
+                    <div>
+                      <label for="fp-desc">Description: </label>
+                      <input type="text" name="description" id="fp-desc" />
+                    </div>
+                    <div>
+                      <label for="fp-mnfac">Manufacturer: </label>
+                      <input type="text" name="manufacturer" id="fp-mnfac" />
+                    </div>
+                    <div>
+                      <label for="fp-model">Model: </label>
+                      <input type="text" name="model" id="fp-model" />
+                    </div>
+                    <div>
+                      <label for="fp-pline">Product Line: </label>
+                      <input type="text" name="product_line" id="fp-pline" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div action="" id="form-add">
+                    <div>
+                      <input
+                        type="hidden"
+                        name="productDD"
+                        id="fp-pDD"
+                        value="null"
+                      />
+                    </div>
+                    <div>
+                      <label for="fp-price">Price: </label>
+                      <input type="text" name="price" id="fp-price" />
+                    </div>
+                    <div>
+                      <label for="fp-qtt">Stock: </label>
+                      <input type="text" name="stock" id="fp-qtt" />
+                    </div>
+                    <div>
+                      <label for="fp-rating">Rating: </label>
+                      <input type="text" name="rating" id="fp-rating" />
+                    </div>
+                    <div>
+                      <label for="fp-new">New?: </label>
+                      <input type="text" name="new" id="fp-new" />
+                    </div>
+                    <div>
+                      <label for="fp-onsale">On Sale?: </label>
+                      <input type="text" name="onsale" id="fp-onsale" />
+                    </div>
+                    <div>
+                      <label for="fp-type">Type: </label>
+                      <input type="text" name="part_type" id="fp-type" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-btn">
+                <button type="submit">Add / Modify</button>
+              </div>
+            </form>
           </div>
-        </form>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

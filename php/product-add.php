@@ -21,7 +21,7 @@ if ($productDD === "null") {
   $query = "INSERT INTO lojagamer.product (name, brand, price, stock, description, rating, new, on_sale, part_type, manufacturer, model, product_line,  date_added)
               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
   $stmt = mysqli_prepare($connect, $query);
-  mysqli_stmt_bind_param($stmt, "ssdissiiisss", $name, $brand, $price, $stock, $description, $rating, $new, $on_sale, $part_type, $manufacturer, $model, $pline);
+  mysqli_stmt_bind_param($stmt, "ssdissiissss", $name, $brand, $price, $stock, $description, $rating, $new, $on_sale, $part_type, $manufacturer, $model, $pline);
 } else {
   // Atualizar um produto
   $query = "UPDATE lojagamer.product
